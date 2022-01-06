@@ -1,0 +1,6 @@
+apiVersion: alertprovider.alertojon.io/v1
+kind: Pagerduty
+metadata:
+  name: pagerduty-sample
+spec:
+  apiToken: "y_NbAkKc66ryYTWUXYEu"
