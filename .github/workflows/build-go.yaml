@@ -28,6 +28,7 @@ jobs:
           name: pickjonathan/alertojon.io-operator-definition
           ref: develop
           token: ${{ secrets.my_pat }}
+        run: ls
 
 #      - name: Test
 #        run: go test -v ./...
