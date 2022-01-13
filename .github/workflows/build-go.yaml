@@ -24,10 +24,13 @@ jobs:
         run: make manifests
 
       - name: Pull operator definitions repository
+        uses: actions/checkout@v2
         with:
           name: pickjonathan/alertojon.io-operator-definition
           ref: develop
           token: ${{ secrets.my_pat }}
+
+      - name: ls
         run: ls
 
 #      - name: Test
