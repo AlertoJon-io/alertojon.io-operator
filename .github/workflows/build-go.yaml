@@ -23,5 +23,11 @@ jobs:
       - name: Make manifests
         run: make manifests
 
+      - name: Pull operator definitions repository
+        with:
+          name: pickjonathan/alertojon.io-operator-definition
+          ref: develop
+          token: ${{ secrets.my_pat }}
+
 #      - name: Test
 #        run: go test -v ./...
