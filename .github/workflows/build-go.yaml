@@ -23,7 +23,7 @@ jobs:
       - name: Make manifests
         run: make manifests
 
-      - name: Upload output file
+      - name: Upload crds
         uses: actions/upload-artifact@v2
         with:
           name: crds
@@ -33,11 +33,6 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: download crds
-        uses: actions/download-artifact@v2
-        with:
-          name: crds
-          path: config/crd/bases
 
       - name: Pull operator definitions repository
         uses: actions/checkout@v2
@@ -46,8 +41,14 @@ jobs:
           ref: develop
           token: ${{ secrets.my_pat }}
 
-      - name: ls
-        run: ls
+      - name: download crds
+        uses: actions/download-artifact@v2
+        with:
+          name: crds
+          path: config/crd/bases
 
-#      - name: Test
-#        run: go test -v ./...
+      - name: copy crds
+        run: cp -r config/crd/bases/* .
+
+      - name: commit and push
+        run: git add . && git commit -m "update crds" && git push origin develop
