@@ -10,23 +10,26 @@ on:
 
 jobs:
 
-  build:
+#  build:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#
+#      - name: Set up Go
+#        uses: actions/setup-go@v2
+#        with:
+#          go-version: 1.17
+
+  pull_def_repo:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.17
-
       - name: Make manifests
         run: make manifests
 
       - name: Pull operator definitions repository
         uses: actions/checkout@v2
         with:
-          name: pickjonathan/alertojon.io-operator-definition
+          repository: pickjonathan/alertojon.io-operator-definition
           ref: develop
           token: ${{ secrets.my_pat }}
 
