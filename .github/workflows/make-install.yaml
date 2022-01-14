@@ -29,5 +29,5 @@ jobs:
       - name: push changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          message: "Update manifests"
+          commit_message: "Update manifests"
           branch: ${{ github.ref }}
