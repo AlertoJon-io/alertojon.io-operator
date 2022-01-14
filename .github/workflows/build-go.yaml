@@ -23,8 +23,6 @@ jobs:
   pull_def_repo:
     runs-on: ubuntu-latest
     steps:
-      - name: Make manifests
-        run: make manifests
 
       - name: Pull operator definitions repository
         uses: actions/checkout@v2
