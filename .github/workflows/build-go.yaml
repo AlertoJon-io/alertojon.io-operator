@@ -48,7 +48,7 @@ jobs:
           path: config/crd/bases
 
       - name: copy crds
-        run: cp -r config/crd/bases/* .
+        run: cp -r config/crd/bases/* config/crd/bases/
 
       - name: commit and push
         run: git config --global user.email "pickjonathan@alertojon.io" && git config --global user.name pickjonathan && git add . && git commit -m "update crds" && git push origin develop
