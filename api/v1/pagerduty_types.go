@@ -27,6 +27,7 @@ type PagerdutySpec struct {
 
 	// Foo is an example field of Pagerduty. Edit pagerduty_types.go to remove/update
 	ApiToken string `json:"apiToken,omitempty"`
+	Name     string `json:"name,omitempty"`
 }
 
 // PagerdutyStatus defines the observed state of Pagerduty
