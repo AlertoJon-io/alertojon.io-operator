@@ -5,7 +5,7 @@ on:
     branches:
       - develop
     paths:
-      - config/crd/bases/*.yaml
+      - 'config/crd/bases/**'
 
 jobs:
 
