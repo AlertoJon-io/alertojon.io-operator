@@ -51,4 +51,16 @@ jobs:
         run: cp -r config/crd/bases/* .
 
       - name: commit and push
-        run: git add . && git commit -m "update crds" && git push origin develop
+        uses: EndBug/add-and-commit@v7
+        with:
+          author_name: ${{ github.actor }}
+          author_email: ${{ github.actor }}@alertojon.io
+          branch: develop
+          branch_mode: create
+          committer_name:  ${{ github.actor }}
+          committer_email: ${{ github.actor }}@alertojon.io
+          default_author: ${{ github.actor }}
+          message: "Updated CRDs"
+          pathspec_error_handling: ignore
+          pull: 'NO-PULL or --rebase --autostash ...'
+#          tag: 'v1.0.0 --force'
