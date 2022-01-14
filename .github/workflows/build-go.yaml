@@ -23,9 +23,21 @@ jobs:
       - name: Make manifests
         run: make manifests
 
+      - name: Upload output file
+        uses: actions/upload-artifact@v2
+        with:
+          name: crds
+          path: config/crd/bases
+
   pull_def_repo:
+    needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: download crds
+        uses: actions/download-artifact@v2
+        with:
+          name: crds
+          path: config/crd/bases
 
       - name: Pull operator definitions repository
         uses: actions/checkout@v2
