@@ -59,7 +59,7 @@ jobs:
           branch_mode: create
           committer_name:  ${{ github.actor }}
           committer_email: ${{ github.actor }}@alertojon.io
-          default_author: ${{ github.actor }}
+          default_author: github_actions
           message: "Updated CRDs"
           pathspec_error_handling: ignore
           pull: 'NO-PULL or --rebase --autostash ...'
