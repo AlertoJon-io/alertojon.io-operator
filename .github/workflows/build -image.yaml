@@ -25,4 +25,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: alertojon-io/operator:latest
+          tags: registry.digitalocean.com/alertojon-io/operator:latest
