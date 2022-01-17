@@ -4,10 +4,13 @@ on:
   pull_request:
     branches:
       - develop
+    paths:
+      - 'controllers/**'
+      - 'api/**/*.go'
 
 jobs:
 
-  build:
+  make-install:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -20,14 +23,7 @@ jobs:
       - name: Make manifests
         run: make manifests
 
-      - name: Upload crds
-        uses: actions/upload-artifact@v2
-        with:
-          name: crds
-          path: config/crd/bases
-
       - name: push changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          message: "Update manifests"
-          branch: ${{ github.ref }}
+          commit_message: "Update manifests"
