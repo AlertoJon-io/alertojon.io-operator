@@ -18,23 +18,20 @@ package controllers
 
 import (
 	"context"
+	v1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
-
-	alertproviderv1 "alertojon.io/operator/api/v1"
 )
 
-// PagerdutyReconciler reconciles a Pagerduty object
-type PagerdutyReconciler struct {
+// ConfigmapReconciler reconciles a Configmap object
+type ConfigmapReconciler struct {
 	client.Client
 	Scheme *runtime.Scheme
 }
 
-//+kubebuilder:rbac:groups=alertprovider.alertojon.io,resources=pagerduties,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=alertprovider.alertojon.io,resources=pagerduties/status,verbs=get;update;patch
-//+kubebuilder:rbac:groups=alertprovider.alertojon.io,resources=pagerduties/finalizers,verbs=update
+//+kubebuilder:rbac:groups="",resources=configmaps,verbs=get;list;watch
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
@@ -45,22 +42,22 @@ type PagerdutyReconciler struct {
 //
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.10.0/pkg/reconcile
-func (r *PagerdutyReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+func (r *ConfigmapReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
 	logger := log.FromContext(ctx)
-	logger.Info("Reconciling Pagerduty")
+	logger.Info("Reconciling Configmap")
 
-	alertProvider := &alertproviderv1.Pagerduty{}
-	err := r.Get(ctx, req.NamespacedName, alertProvider)
+	configMap := &v1.ConfigMap{}
+	err := r.Get(ctx, req.NamespacedName, configMap)
 	if err != nil {
 		return ctrl.Result{}, client.IgnoreNotFound(err)
 	}
-	logger.Info("The api token from the CRD %v\n", alertProvider.Spec.ApiToken)
+	logger.Info("The data from the configmap %v\n", configMap.Data)
 	return ctrl.Result{}, nil
 }
 
 // SetupWithManager sets up the controller with the Manager.
-func (r *PagerdutyReconciler) SetupWithManager(mgr ctrl.Manager) error {
+func (r *ConfigmapReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
-		For(&alertproviderv1.Pagerduty{}).
+		For(&v1.ConfigMap{}).
 		Complete(r)
 }
