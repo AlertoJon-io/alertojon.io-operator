@@ -3,4 +3,4 @@ kind: Pagerduty
 metadata:
   name: pagerduty-sample
 spec:
-  apiToken: "y_NbAkKc66ryYTWUXYEu"
+  apiToken: "e+qF9zBAdBDuNu2qGQqA"

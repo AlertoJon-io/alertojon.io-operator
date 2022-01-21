@@ -125,7 +125,7 @@ func (receiver *PagerdutyReconciler) createPagerDutyDeployment(provider *alertpr
 					ServiceAccountName: "pagerduty-operator",
 					ImagePullSecrets: []corev1.LocalObjectReference{
 						{
-							Name: "alertojon-io",
+							Name: "alertojon-io", //TODO:: change to the image pull secret name to be extracted from pagerduty CR
 						},
 					},
 					Containers: []corev1.Container{
