@@ -122,6 +122,7 @@ func (receiver *PagerdutyReconciler) createPagerDutyDeployment(provider *alertpr
 					},
 				},
 				Spec: corev1.PodSpec{
+					ServiceAccountName: "pagerduty-operator",
 					Containers: []corev1.Container{
 						{
 							Name:  "pagerduty-deployment",
