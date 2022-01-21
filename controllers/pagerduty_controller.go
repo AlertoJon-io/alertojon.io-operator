@@ -123,6 +123,11 @@ func (receiver *PagerdutyReconciler) createPagerDutyDeployment(provider *alertpr
 				},
 				Spec: corev1.PodSpec{
 					ServiceAccountName: "pagerduty-operator",
+					ImagePullSecrets: []corev1.LocalObjectReference{
+						{
+							Name: "alertojon-io",
+						},
+					},
 					Containers: []corev1.Container{
 						{
 							Name:  "pagerduty-deployment",
