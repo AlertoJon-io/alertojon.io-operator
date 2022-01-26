@@ -34,7 +34,7 @@ jobs:
           labels: |
             org.opencontainers.image.created={{created_at}}
             org.opencontainers.image.description=alertojon base operator
-            io.artifacthub.package.readme-url=https://github.com/AlertoJon-io/alertojon.io-operator/blob/develop/README.md
+            io.artifacthub.package.readme-url=https://raw.githubusercontent.com/AlertoJon-io/alertojon.io-operator/develop/README.md?token=GHSAT0AAAAAABQQ6WUP5ZHPWFGZFCMSHJIIYPR3YYQ
 
       - name: Login to Digital ocean
         uses: docker/login-action@v1
