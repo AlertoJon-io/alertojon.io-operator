@@ -31,9 +31,10 @@ jobs:
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
             type=sha
-            type=ref,io.artifacthub.package.readme-url=https://github.com/AlertoJon-io/alertojon.io-operator/blob/develop/README.md
-            type=ref,org.opencontainers.image.created={{created_at}}
-            type=ref,org.opencontainers.image.description=alertojon base operator
+          labels: |
+            io.artifacthub.package.readme-url=https://github.com/AlertoJon-io/alertojon.io-operator/blob/develop/README.md
+            org.opencontainers.image.created={{created_at}}
+            org.opencontainers.image.description=alertojon base operator
 
       - name: Login to Digital ocean
         uses: docker/login-action@v1
