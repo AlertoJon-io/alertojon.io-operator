@@ -19,14 +19,7 @@ jobs:
           registry: registry.digitalocean.com
           username: ${{ secrets.DOCKER_API_TOKEN }}
           password: ${{ secrets.DOCKER_API_TOKEN }}
-
-      - name: Build and push
-        id: docker_build
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: registry.digitalocean.com/alertojon-io/operator:latest
-
+      
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
@@ -38,5 +31,8 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: alertojon/operator:latest
+          tags: |
+            registry.digitalocean.com/alertojon-io/operator:latest
+            alertojon/operator:latest
+
 
