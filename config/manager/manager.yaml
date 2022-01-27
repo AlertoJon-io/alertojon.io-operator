@@ -9,7 +9,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: controller-manager
-  namespace: system
+  namespace: alertojon-io
   labels:
     control-plane: controller-manager
 spec:
@@ -26,12 +26,15 @@ spec:
     spec:
       securityContext:
         runAsNonRoot: true
+      imagePullSecrets:
+        - name: alertojon-io
       containers:
       - command:
         - /manager
         args:
         - --leader-elect
         image: controller:latest
+        imagePullPolicy: Always
         name: manager
         securityContext:
           allowPrivilegeEscalation: false

@@ -40,6 +40,8 @@ spec:
                 description: Foo is an example field of Pagerduty. Edit pagerduty_types.go
                   to remove/update
                 type: string
+              serviceKey:
+                type: string
             type: object
           status:
             description: PagerdutyStatus defines the observed state of Pagerduty
