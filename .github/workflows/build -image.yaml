@@ -32,7 +32,7 @@ jobs:
             type=semver,pattern={{major}}
             type=sha
           labels: |
-            org.opencontainers.image.created={{created_at}}
+            org.opencontainers.image.created=${{ steps.prep.outputs.created }}
             org.opencontainers.image.description=alertojon base operator
             io.artifacthub.package.readme-url=https://raw.githubusercontent.com/AlertoJon-io/alertojon.io-operator/develop/README.md?token=GHSAT0AAAAAABQQ6WUP5ZHPWFGZFCMSHJIIYPR3YYQ
 
