@@ -2,8 +2,8 @@
 # since it depends on service name and namespace that are out of this kustomize package.
 # It should be run by config/default
 resources:
-- bases/alertprovider.alertojon.io_pagerduties.yaml
-- bases/alertprovider.alertojon.io_incidentmanagementproviders.yaml
+- bases/alertojon.io_pagerduties.yaml
+- bases/alertojon.io_incidentmanagementproviders.yaml
 #+kubebuilder:scaffold:crdkustomizeresource
 
 patchesStrategicMerge:

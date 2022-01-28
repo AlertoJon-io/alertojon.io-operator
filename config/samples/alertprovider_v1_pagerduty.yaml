@@ -1,4 +1,4 @@
-apiVersion: alertprovider.alertojon.io/v1
+apiVersion: alertojon.io/v1
 kind: Pagerduty
 metadata:
   name: pagerduty-sample

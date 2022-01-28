@@ -6,9 +6,9 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.7.0
   creationTimestamp: null
-  name: pagerduties.alertprovider.alertojon.io
+  name: pagerduties.alertojon.io
 spec:
-  group: alertprovider.alertojon.io
+  group: alertojon.io
   names:
     kind: Pagerduty
     listKind: PagerdutyList

@@ -13,30 +13,30 @@ package logic
 //func (f *Factory) CreateDeployment(alertprovider *alertproviderv1.AlertProvider) *appsv1.Deployment {
 //	deployment := &appsv1.Deployment{
 //		ObjectMeta: metav1.ObjectMeta{
-//			Name:      alertprovider.Name,
-//			Namespace: alertprovider.Namespace,
+//			Name:      Name,
+//			Namespace: Namespace,
 //		},
 //		Spec: appsv1.DeploymentSpec{
-//			Replicas: &alertprovider.Spec.Replicas,
+//			Replicas: &Spec.Replicas,
 //			Selector: &metav1.LabelSelector{
 //				MatchLabels: map[string]string{
-//					"app": alertprovider.Name,
+//					"app": Name,
 //				},
 //			},
 //			Template: corev1.PodTemplateSpec{
 //				ObjectMeta: metav1.ObjectMeta{
 //					Labels: map[string]string{
-//						"app": alertprovider.Name,
+//						"app": Name,
 //					},
 //				},
 //				Spec: corev1.PodSpec{
 //					Containers: []corev1.Container{
 //						{
-//							Name:  alertprovider.Name,
-//							Image: alertprovider.Spec.Image,
+//							Name:  Name,
+//							Image: Spec.Image,
 //							Ports: []corev1.ContainerPort{
 //								{
-//									ContainerPort: alertprovider.Spec.Port,
+//									ContainerPort: Spec.Port,
 //								},
 //							},
 //						},
