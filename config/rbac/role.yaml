@@ -9,6 +9,32 @@ rules:
 - apiGroups:
   - alertprovider.alertojon.io
   resources:
+  - incidentmanagementproviders
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - alertprovider.alertojon.io
+  resources:
+  - incidentmanagementproviders/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - alertprovider.alertojon.io
+  resources:
+  - incidentmanagementproviders/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - alertprovider.alertojon.io
+  resources:
   - pagerduties
   verbs:
   - create
