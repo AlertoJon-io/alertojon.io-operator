@@ -38,7 +38,7 @@ jobs:
             org.opencontainers.image.source='https://github.com/AlertoJon-io/alertojon.io-operator' 
             org.opencontainers.image.vendor='Artifact Hub' 
             io.artifacthub.package.maintainers=[{"name":"AlertoJon.io maintainers","email":"pickjonathan@alertojon.io"}] 
-            io.artifacthub.package.logo-url=https://drive.google.com/uc?id=1Pz_01i2itDW1QZmSMuHen3WZYAJJ3pTV 
+            io.artifacthub.package.logo-url=https://drive.google.com/uc?id=1qa2i_2pggjIookzToHlNDU_HNr453YMd
             io.artifacthub.package.keywords='incident management,alertojon.io,operator'
             io.artifacthub.package.license='Apache-2.0'
             io.artifacthub.package.alternative-locations='alertojon/operator:develop'
