@@ -21,7 +21,6 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
-            registry.digitalocean.com/alertojon-io/operator
             alertojon/operator
           # generate Docker tags based on the following events/attributes
           tags: |
@@ -34,13 +33,6 @@ jobs:
             type=sha
           labels: |
             io.artifacthub.package.readme-url=https://raw.githubusercontent.com/AlertoJon-io/alertojon.io-operator/develop/README.md
-
-      - name: Login to Digital ocean
-        uses: docker/login-action@v1
-        with:
-          registry: registry.digitalocean.com
-          username: ${{ secrets.DOCKER_API_TOKEN }}
-          password: ${{ secrets.DOCKER_API_TOKEN }}
       
       - name: Login to DockerHub
         uses: docker/login-action@v1
