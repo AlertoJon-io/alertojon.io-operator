@@ -35,9 +35,9 @@ type PagerdutyReconciler struct {
 	Scheme *runtime.Scheme
 }
 
-//+kubebuilder:rbac:groups=alertprovider.alertojon.io,resources=pagerduties,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=alertprovider.alertojon.io,resources=pagerduties/status,verbs=get;update;patch
-//+kubebuilder:rbac:groups=alertprovider.alertojon.io,resources=pagerduties/finalizers,verbs=update
+//+kubebuilder:rbac:groups=alertojon.io,resources=pagerduties,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=alertojon.io,resources=pagerduties/status,verbs=get;update;patch
+//+kubebuilder:rbac:groups=alertojon.io,resources=pagerduties/finalizers,verbs=update
 
 //+kubebuilder:rbac:groups=apps,resources=deployments,verbs=get;list;watch;create;update;patch;delete
 //+kubebuilder:rbac:groups=core,resources=secrets,verbs=get;list;watch;create;update;patch;delete
