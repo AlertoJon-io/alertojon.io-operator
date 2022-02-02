@@ -44,13 +44,6 @@ jobs:
             io.artifacthub.package.keywords='incident management,alertojon.io,operator'  
             io.artifacthub.package.license='Apache-2.0'
             io.artifacthub.package.alternative-locations='alertojon/operator:develop'
-
-      - name: Login to Digital ocean
-        uses: docker/login-action@v1
-        with:
-          registry: registry.digitalocean.com
-          username: ${{ secrets.DOCKER_API_TOKEN }}
-          password: ${{ secrets.DOCKER_API_TOKEN }}
       
       - name: Login to DockerHub
         uses: docker/login-action@v1

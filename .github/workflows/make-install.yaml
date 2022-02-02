@@ -9,7 +9,6 @@ on:
       - 'api/**/*.go'
 
 jobs:
-
   make-install:
     runs-on: ubuntu-latest
     steps:
