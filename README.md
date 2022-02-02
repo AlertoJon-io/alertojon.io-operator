@@ -9,7 +9,7 @@ This repo is the main operator that will get you going with you favorit provider
 
 CR example :
 ```yaml
-apiVersion: alertprovider.alertojon.io/v1
+apiVersion: alertojon.io/v1
 kind: Pagerduty
 metadata:
   name: pagerduty-sample
