@@ -34,6 +34,16 @@ jobs:
             type=sha
           labels: |
             io.artifacthub.package.readme-url=https://raw.githubusercontent.com/AlertoJon-io/alertojon.io-operator/develop/README.md
+            org.opencontainers.image.description='AlertoJon.io incident management operator'  
+            org.opencontainers.image.documentation='https://github.com/AlertoJon-io/alertojon.io-operator/wiki' 
+            org.opencontainers.image.source='https://github.com/AlertoJon-io/alertojon.io-operator' 
+            org.opencontainers.image.vendor='Artifact Hub'
+            io.artifacthub.package.readme-url='https://raw.githubusercontent.com/artifacthub/hub/0c0e789ab6f4e74dfa59a4e7c1ece4788881e279/docs/cli.md' 
+            io.artifacthub.package.maintainers='[{"name":"AlertoJon.io maintainers","email":"pickjonathan@alertojon.io"}]' 
+            io.artifacthub.package.logo-url='https://drive.google.com/file/d/1qa2i_2pggjIookzToHlNDU_HNr453YMd/view?usp=sharing' 
+            io.artifacthub.package.keywords='incident management,alertojon.io,operator'  
+            io.artifacthub.package.license='Apache-2.0'
+            io.artifacthub.package.alternative-locations='alertojon/operator:develop'
 
       - name: Login to Digital ocean
         uses: docker/login-action@v1
