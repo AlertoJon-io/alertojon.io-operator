@@ -36,11 +36,10 @@ jobs:
             org.opencontainers.image.description='AlertoJon.io incident management operator'  
             org.opencontainers.image.documentation='https://github.com/AlertoJon-io/alertojon.io-operator/wiki' 
             org.opencontainers.image.source='https://github.com/AlertoJon-io/alertojon.io-operator' 
-            org.opencontainers.image.vendor='Artifact Hub'
-            io.artifacthub.package.readme-url='https://raw.githubusercontent.com/artifacthub/hub/0c0e789ab6f4e74dfa59a4e7c1ece4788881e279/docs/cli.md' 
+            org.opencontainers.image.vendor='Artifact Hub' 
             io.artifacthub.package.maintainers='[{"name":"AlertoJon.io maintainers","email":"pickjonathan@alertojon.io"}]' 
-            io.artifacthub.package.logo-url='https://raw.githubusercontent.com/AlertoJon-io/alertojon-io-docs/main/source/images/AlertoJon_Logo.png?token=GHSAT0AAAAAABQQ6WUOK7BRIYRODXWQZFTOYP234DQ' 
-            io.artifacthub.package.keywords='incident management,alertojon.io,operator'  
+            io.artifacthub.package.logo-url=https://raw.githubusercontent.com/AlertoJon-io/alertojon-io-docs/main/source/images/AlertoJon_Logo.png?token=GHSAT0AAAAAABQQ6WUOK7BRIYRODXWQZFTOYP234DQ 
+            io.artifacthub.package.keywords='incident management,alertojon.io,operator'
             io.artifacthub.package.license='Apache-2.0'
             io.artifacthub.package.alternative-locations='alertojon/operator:develop'
       
