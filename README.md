@@ -9,6 +9,9 @@ This repo is currentlly in early development stages and for sure will change.
 
 ## alertojon.io-operator
 
+![alt text](https://drive.google.com/uc?id=1qa2i_2pggjIookzToHlNDU_HNr453YMd) 
+
+
 The aim of alertojon.io is to provide abstraction to alert 🚨 management Third-party services like pagerduty and opsgenie by leveraging k8s operators.
 
 This repo is the main operator that will get you going with you favorit provider.
