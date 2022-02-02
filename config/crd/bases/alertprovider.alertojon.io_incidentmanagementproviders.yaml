@@ -6,20 +6,21 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.7.0
   creationTimestamp: null
-  name: pagerduties.alertojon.io
+  name: incidentmanagementproviders.alertojon.io
 spec:
   group: alertojon.io
   names:
-    kind: Pagerduty
-    listKind: PagerdutyList
-    plural: pagerduties
-    singular: pagerduty
+    kind: IncidentManagementProvider
+    listKind: IncidentManagementProviderList
+    plural: incidentmanagementproviders
+    singular: incidentmanagementprovider
   scope: Namespaced
   versions:
   - name: v1
     schema:
       openAPIV3Schema:
-        description: Pagerduty is the Schema for the pagerduties API
+        description: IncidentManagementProvider is the Schema for the incidentmanagementproviders
+          API
         properties:
           apiVersion:
             description: 'APIVersion defines the versioned schema of this representation
@@ -34,17 +35,33 @@ spec:
           metadata:
             type: object
           spec:
-            description: PagerdutySpec defines the desired state of Pagerduty
+            description: IncidentManagementProviderSpec defines the desired state
+              of IncidentManagementProvider
             properties:
-              apiToken:
-                description: Foo is an example field of Pagerduty. Edit pagerduty_types.go
-                  to remove/update
+              apiKeySecretRef:
+                description: Specifies secret api key for the IncidentManagementProvider.
+                properties:
+                  secretKey:
+                    description: Specifies the key of the secret containing the api
+                      key.
+                    type: string
+                  secretName:
+                    description: Specifies the name of the secret containing the api
+                      key.
+                    type: string
+                type: object
+              apikey:
+                description: Specifies api key of the IncidentManagementProvider.
                 type: string
-              serviceKey:
+              type:
+                description: 'Specifies IncidentManagementProvider. Valid values are:
+                  - "PagerDuty" (default): allows CronJobs to run concurrently; -
+                  "Opsgenie": IncidentManagement provider'
                 type: string
             type: object
           status:
-            description: PagerdutyStatus defines the observed state of Pagerduty
+            description: IncidentManagementProviderStatus defines the observed state
+              of IncidentManagementProvider
             type: object
         type: object
     served: true
