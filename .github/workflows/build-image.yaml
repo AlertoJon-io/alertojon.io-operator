@@ -33,15 +33,15 @@ jobs:
             type=sha
           labels: |
             io.artifacthub.package.readme-url=https://raw.githubusercontent.com/AlertoJon-io/alertojon.io-operator/develop/README.md
-            org.opencontainers.image.description='AlertoJon.io incident management operator'  
-            org.opencontainers.image.documentation='https://github.com/AlertoJon-io/alertojon.io-operator/wiki' 
-            org.opencontainers.image.source='https://github.com/AlertoJon-io/alertojon.io-operator' 
-            org.opencontainers.image.vendor='Artifact Hub' 
+            org.opencontainers.image.description=AlertoJon.io incident management operator
+            org.opencontainers.image.documentation=https://github.com/AlertoJon-io/alertojon.io-operator/wiki 
+            org.opencontainers.image.source=https://github.com/AlertoJon-io/alertojon.io-operator 
+            org.opencontainers.image.vendor='Artifact Hub'
             io.artifacthub.package.maintainers=[{"name":"AlertoJon.io maintainers","email":"pickjonathan@alertojon.io"}] 
             io.artifacthub.package.logo-url=https://drive.google.com/uc?id=1uKH_ca6fu76aGNqO7rPEAZ8hP8EYnO0p
             io.artifacthub.package.keywords='incident management,alertojon.io,operator'
             io.artifacthub.package.license='Apache-2.0'
-            io.artifacthub.package.alternative-locations='alertojon/operator:develop'
+            io.artifacthub.package.alternative-locations=alertojon/operator:develop
       
       - name: Login to DockerHub
         uses: docker/login-action@v1
