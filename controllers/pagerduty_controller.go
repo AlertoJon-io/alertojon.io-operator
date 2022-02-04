@@ -18,15 +18,13 @@ package controllers
 
 import (
 	"context"
-	appsv1 "k8s.io/api/apps/v1"
-	corev1 "k8s.io/api/core/v1"
-	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
 	alertproviderv1 "alertojon.io/operator/api/v1"
+	"alertojon.io/operator/objects"
 )
 
 // PagerdutyReconciler reconciles a Pagerduty object
@@ -62,8 +60,8 @@ func (receiver *PagerdutyReconciler) Reconcile(ctx context.Context, req ctrl.Req
 		return ctrl.Result{}, client.IgnoreNotFound(err)
 	}
 
-	secret := receiver.createPagerDutySecretContainingApiKey(alertProvider)
-	deployment := receiver.createPagerDutyDeployment(alertProvider)
+	secret := objects.CreatePagerDutySecret(alertProvider)
+	deployment := objects.CreatePagerDutyDeployment(alertProvider)
 
 	err = receiver.Client.Create(ctx, secret)
 	if err != nil {
@@ -76,82 +74,6 @@ func (receiver *PagerdutyReconciler) Reconcile(ctx context.Context, req ctrl.Req
 	}
 
 	return ctrl.Result{}, nil
-}
-
-func (receiver *PagerdutyReconciler) createPagerDutySecretContainingApiKey(alertProvider *alertproviderv1.Pagerduty) *corev1.Secret {
-	secret := &corev1.Secret{
-		TypeMeta: metav1.TypeMeta{
-			APIVersion: "v1",
-			Kind:       "Secret",
-		},
-		ObjectMeta: metav1.ObjectMeta{
-			Name:      "pagerduty-api-token",
-			Namespace: alertProvider.Namespace,
-		},
-		Data: map[string][]byte{
-			"api_token": []byte(alertProvider.Spec.ApiToken),
-		},
-		Type: "Opaque",
-	}
-	return secret
-}
-
-func (receiver *PagerdutyReconciler) createPagerDutyDeployment(provider *alertproviderv1.Pagerduty) *appsv1.Deployment {
-	// TODO:: inorder to support scaling and replicas use provider.Spec.Replicas and delete the following line.
-	replicas := int32(1)
-	deployment := &appsv1.Deployment{
-		TypeMeta: metav1.TypeMeta{
-			APIVersion: "apps/v1",
-			Kind:       "Deployment",
-		},
-		ObjectMeta: metav1.ObjectMeta{
-			Name:      "pagerduty-deployment",
-			Namespace: provider.Namespace,
-		},
-		Spec: appsv1.DeploymentSpec{
-			Replicas: &replicas,
-			Selector: &metav1.LabelSelector{
-				MatchLabels: map[string]string{
-					"app": "pagerduty-deployment",
-				},
-			},
-			Template: corev1.PodTemplateSpec{
-				ObjectMeta: metav1.ObjectMeta{
-					Labels: map[string]string{
-						"app": "pagerduty-deployment",
-					},
-				},
-				Spec: corev1.PodSpec{
-					ServiceAccountName: "pagerduty-operator",
-					ImagePullSecrets: []corev1.LocalObjectReference{
-						{
-							Name: "alertojon-io", //TODO:: change to the image pull secret name to be extracted from pagerduty CR
-						},
-					},
-					Containers: []corev1.Container{
-						{
-							Name:  "pagerduty-deployment",
-							Image: "registry.digitalocean.com/alertojon-io/pagetduty-operator:latest",
-							Env: []corev1.EnvVar{
-								{
-									Name: "PAGERDUTY_API_TOKEN",
-									ValueFrom: &corev1.EnvVarSource{
-										SecretKeyRef: &corev1.SecretKeySelector{
-											LocalObjectReference: corev1.LocalObjectReference{
-												Name: "pagerduty-api-token",
-											},
-											Key: "api_token",
-										},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
-		},
-	}
-	return deployment
 }
 
 // SetupWithManager sets up the controller with the Manager.

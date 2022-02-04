@@ -24,25 +24,19 @@ jobs:
             alertojon/operator
           # generate Docker tags based on the following events/attributes
           tags: |
-            type=schedule
             type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
-            type=sha
           labels: |
-            io.artifacthub.package.readme-url=https://raw.githubusercontent.com/AlertoJon-io/alertojon.io-operator/develop/README.md
-            org.opencontainers.image.description=AlertoJon.io incident management operator
-            org.opencontainers.image.documentation=https://github.com/AlertoJon-io/alertojon.io-operator/wiki 
-            org.opencontainers.image.source=https://github.com/AlertoJon-io/alertojon.io-operator 
-            org.opencontainers.image.vendor='Artifact Hub'
-            io.artifacthub.package.maintainers=[{"name":"AlertoJon.io maintainers","email":"pickjonathan@alertojon.io"}] 
-            io.artifacthub.package.logo-url=https://drive.google.com/uc?id=1uKH_ca6fu76aGNqO7rPEAZ8hP8EYnO0p
-            io.artifacthub.package.keywords='incident management,alertojon.io,operator'
-            io.artifacthub.package.license='Apache-2.0'
+            io.artifacthub.package.license=MIT
+            org.opencontainers.image.vendor=AlertoJon.io
             io.artifacthub.package.alternative-locations=alertojon/operator:develop
-      
+            io.artifacthub.package.keywords=incident management,alertojon.io,operator,alerts,incidents
+            org.opencontainers.image.description=AlertoJon.io incident management operator
+            org.opencontainers.image.source=https://github.com/AlertoJon-io/alertojon.io-operator 
+            io.artifacthub.package.logo-url=https://drive.google.com/uc?id=1uKH_ca6fu76aGNqO7rPEAZ8hP8EYnO0p
+            org.opencontainers.image.documentation=https://github.com/AlertoJon-io/alertojon.io-operator/wiki 
+            io.artifacthub.package.maintainers=[{"name":"AlertoJon.io maintainers","email":"pickjonathan@alertojon.io"}] 
+            io.artifacthub.package.readme-url=https://raw.githubusercontent.com/AlertoJon-io/alertojon.io-operator/develop/README.md
+
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
