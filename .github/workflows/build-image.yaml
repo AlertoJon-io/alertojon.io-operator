@@ -29,7 +29,7 @@ jobs:
             io.artifacthub.package.license=MIT
             org.opencontainers.image.vendor=AlertoJon.io
             io.artifacthub.package.alternative-locations=alertojon/operator:develop
-            io.artifacthub.package.keywords=incident management,alertojon.io,operator,alerts,incidents
+            io.artifacthub.package.keywords=incident management,alertojon.io,operator,alerts,incidents,incident management
             org.opencontainers.image.description=AlertoJon.io incident management operator
             org.opencontainers.image.source=https://github.com/AlertoJon-io/alertojon.io-operator 
             io.artifacthub.package.logo-url=https://drive.google.com/uc?id=1uKH_ca6fu76aGNqO7rPEAZ8hP8EYnO0p
